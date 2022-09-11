@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class OrderPage extends StatefulWidget {
+  const OrderPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<OrderPage> createState() => _OrderPageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _OrderPageState extends State<OrderPage> with TickerProviderStateMixin {
   final items = <Map<String,dynamic>>[
     {
       'name': 'Özel Saat',
@@ -77,6 +77,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       appBar: AppBar(
         title: const Text('My Orders'),
         bottom: buildTabBar(),
+        backgroundColor: Colors.white,
+        titleTextStyle: const TextStyle(color: Color(0xff002171),fontSize: 22,fontWeight: FontWeight.bold),
+        elevation: 0,
       ),
       body: TabBarView(
         controller: controller,

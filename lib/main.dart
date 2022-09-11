@@ -1,8 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'home_page.dart';
+import 'my_bottom_bar.dart';
+import 'pages/order.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,17 +15,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Jeweler App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          color: Colors.white,
-          titleTextStyle: TextStyle(color: Color(0xff002171),fontSize: 24,fontWeight: FontWeight.bold),
-          elevation: 0,
+    return ScreenUtilInit(
+      builder: (BuildContext context, Widget? child) =>
+      MaterialApp(
+        title: 'Jeweler App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: Colors.teal,
+          colorScheme:
+          ThemeData().colorScheme.copyWith(primary: Colors.teal),
         ),
+        home: const MyBottomNavigationBar(),
       ),
-      home: const HomePage(),
     );
   }
 }
